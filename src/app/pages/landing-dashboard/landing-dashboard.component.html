@@ -1,0 +1,16 @@
+<div class="landing-dashboard-wrapper">
+  <table class="full-screen">
+    <tr class="title-row">
+      <td colspan="3">
+        <p class="header">{{projectTitle}}</p>
+      </td>
+    </tr>
+    <tr *ngIf="detailsObj && detailsObj[0]">
+      <td *ngFor="let item of detailsObj">
+        <a class="clickable"><span class="large-text">{{item.value}}</span></a>
+        <br/>
+        <span class="small-text">{{item.label}}</span>
+      </td>
+    </tr>
+  </table>
+</div>

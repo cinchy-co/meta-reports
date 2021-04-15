@@ -1,0 +1,26 @@
+.quarter {
+  height: 50%;
+  width: 50%;
+  display: inline-block;
+}
+
+.verticalHalf {
+  height: 50%;
+  width: 100%;
+  display: block;
+}
+
+.horizontalHalf {
+  height: 100%;
+  width: 50%;
+  display: inline-block;
+}
+
+#load {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url(../assets/loader.gif) no-repeat center;
+}

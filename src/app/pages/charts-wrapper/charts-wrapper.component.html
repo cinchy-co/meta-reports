@@ -1,0 +1,65 @@
+<section class="chart-wrapper full-height-element">
+  <div *ngIf="chartsDetails" [ngClass]="'charts-wrapper-theme--'+brand">
+    <app-carousel>
+      <ng-container>
+        <ng-container *ngIf="firstScreenQueries && firstScreenQueries.length">
+          <ng-container *carouselItem>
+            <app-landing-dashboard [firstScreenQueries]="firstScreenQueries"></app-landing-dashboard>
+          </ng-container>
+        </ng-container>
+
+        <ng-container *ngFor="let combinedCharts of chartsDetails">
+          <ng-container *carouselItem>
+            <div class="chart-wrapper-body" [ngClass]="'chart-wrapper-body--'+numberOfChartsOnScreen">
+              <ng-container *ngFor="let chart of combinedCharts">
+                <div class="chart-table-wrapper" *ngIf="chart.data.chartType==='Horizontal Bar' || chart.data.chartType==='Bar'">
+                  <app-bar [chart]="chart" [colors]="chartColors.BarChart"
+                           (chartClickedContext)="chartClickedForFilter($event)">
+                  </app-bar>
+                  <app-table-view *ngIf="allTableData && getLinkedTable(chart)" [allData]="getLinkedTable(chart)"
+                                  [numberOfChartsOnScreen]="numberOfChartsOnScreen"
+                                  [tableQuery]="getLinkedTableQuery(chart)"
+                                  [chartContextForTableFilter]="chartContextForTableFilter">
+                  </app-table-view>
+                </div>
+
+                <div class="chart-table-wrapper" *ngIf="chart.data.chartType==='Doughnut' || chart.data.chartType==='Pie'">
+                  <app-doughnut [chart]="chart" [colors]="chartColors.DoughnutChart"
+                                (chartClickedContext)="chartClickedForFilter($event)">
+                  </app-doughnut>
+                  <app-table-view *ngIf="allTableData && getLinkedTable(chart)" [allData]="getLinkedTable(chart)"
+                                  [numberOfChartsOnScreen]="numberOfChartsOnScreen"
+                                  [tableQuery]="getLinkedTableQuery(chart)"
+                                  [chartContextForTableFilter]="chartContextForTableFilter">
+                  </app-table-view>
+                </div>
+
+                <div class="chart-table-wrapper" *ngIf="chart.data.chartType==='Line'">
+                  <app-line [chart]="chart" [colors]="chartColors.LineChart"
+                            (chartClickedContext)="chartClickedForFilter($event)">
+                  </app-line>
+                  <app-table-view *ngIf="allTableData && getLinkedTable(chart)" [allData]="getLinkedTable(chart)"
+                                  [numberOfChartsOnScreen]="numberOfChartsOnScreen"
+                                  [tableQuery]="getLinkedTableQuery(chart)"
+                                  [chartContextForTableFilter]="chartContextForTableFilter">
+                  </app-table-view>
+                </div>
+
+                <div class="chart-table-wrapper" *ngIf="chart.data.chartType==='Radar'">
+                  <app-radar [chart]="chart" [colors]="chartColors.RadarChart"
+                           (chartClickedContext)="chartClickedForFilter($event)">
+                  </app-radar>
+                  <app-table-view *ngIf="allTableData && getLinkedTable(chart)" [allData]="getLinkedTable(chart)"
+                                  [numberOfChartsOnScreen]="numberOfChartsOnScreen"
+                                  [tableQuery]="getLinkedTableQuery(chart)"
+                                  [chartContextForTableFilter]="chartContextForTableFilter">
+                  </app-table-view>
+                </div>
+              </ng-container>
+            </div>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </app-carousel>
+  </div>
+</section>

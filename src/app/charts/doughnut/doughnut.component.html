@@ -1,0 +1,23 @@
+<div class="doughnut-chart-container charts-container">
+  <div class="full">
+    <div class="chart-header">
+      <div class="chart-header-number">{{data.headerCount}}</div>
+      <div class="chart-header-text">{{data.chartHeader}}</div>
+    </div>
+    <div class="horizontal-half">
+      <div>
+        <span class="chart-label" *ngIf="data.chartTitle">{{data.chartTitle}}</span>
+        <div class="reset-icons">
+          <div class="selected-chart-option" (click)="resetFilter()" *ngIf="clickedLabel">{{clickedLabel}}<mat-icon>clear icon</mat-icon></div>
+        </div>
+      </div>
+      <canvas baseChart
+              [data]="doughnutChartData"
+              [labels]="doughnutChartLabels"
+              [options]="doughnutChartOptions"
+              [chartType]="doughnutChartType"
+              [colors]="doughnutChartColors">
+      </canvas>
+    </div>
+  </div>
+</div>

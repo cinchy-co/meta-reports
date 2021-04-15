@@ -1,0 +1,22 @@
+<section class="table-view">
+  <div>
+    <button class="toggle-btn" (click)="showTable = !showTable">{{!showTable ? 'Show' : 'Hide'}} table</button>
+  </div>
+
+  <div *ngIf="showTable">
+    <div *ngIf="columnKeys" class="table-container" [ngClass]="'width-'+numberOfChartsOnScreen">
+      <table mat-table [dataSource]="dataSource" [ngStyle]="tableStyles">
+        <ng-container *ngFor="let key of columnKeys">
+          <ng-container [matColumnDef]=key>
+            <mat-header-cell *matHeaderCellDef [ngStyle]="tableStyles">{{key}}</mat-header-cell>
+            <mat-cell [attr.data-label]=key *matCellDef="let element" [ngStyle]="tableStyles">
+              <span [innerHTML]="element[key]"></span>
+            </mat-cell>
+          </ng-container>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="columnKeys; sticky: true"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: columnKeys;"></mat-row>
+      </table>
+    </div>
+  </div>
+</section>

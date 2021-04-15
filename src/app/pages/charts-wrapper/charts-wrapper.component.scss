@@ -1,0 +1,51 @@
+.chart-wrapper {
+  padding: 20px;
+  overflow-y: scroll;
+
+  .chart-wrapper-body {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    @media (max-width: 797px) {
+      display: block;
+    }
+
+    &--1 {
+      & > * {
+        flex-basis: 70%;
+      }
+    }
+
+    &--2 {
+      & > * {
+        flex-basis: 45%;
+        margin-top: 20px;
+      }
+    }
+
+    &--3 {
+      & > * {
+        flex-basis: 45%;
+        margin-top: 20px;
+      }
+    }
+
+    @media screen and (max-width: 1040px) {
+      width: 100%;
+
+      & > * {
+        flex-basis: 90%;
+      }
+    }
+
+  }
+}
+
+@media (max-width: 797px) {
+  :host ::ng-deep app-table-view {
+    .table-view{
+      margin-top: 18px;
+    }
+  }
+}

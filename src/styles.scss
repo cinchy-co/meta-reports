@@ -1,0 +1,205 @@
+/* You can add global styles to this file, and also import other style files */
+$PURPLE_COLOR: rgba(53, 0, 95, 1);
+$PINK_COLOR: #E7015B;
+$WHITE_COLOR: rgba(255, 255, 255, 1);
+$LIGHT_GRAY_COLOR: #d3d3d3;
+$ERROR_COLOR: orangered;
+$DEEP_BLUE_COLOR: #004d7c;
+$DARK_GRAY: #434343;
+$BLACK: #1A1C1D;
+
+
+$TAB-LANDSCAPE: 1040px;
+$TAB-POTRAIT: 697px;
+
+
+// COMPANY BASED themes FOR FORM
+$DEFAULT: #af506a;
+$CINCHY_PURPLE_COLOR: $PURPLE_COLOR;
+$CINCHY_PINK_COLOR: $PINK_COLOR;
+$TD_COLOR: green;
+$KPMG_COLOR: #6484A9;
+$PWC_COLOR: rgb(255,86,43,1);
+
+@mixin companyTheme($Primary_Color, $Secondary_Color, $Tertiary_Color) {
+  .landing-dashboard-wrapper {
+    .header {
+      color: $Primary_Color;
+    }
+  }
+  .chart-header-text {
+    background-color: $Primary_Color;
+  }
+
+  .chart-label {
+    background-color: $Primary_Color;
+  }
+
+  .selected-chart-option{
+    background-color: $Primary_Color;
+  }
+}
+
+.charts-wrapper-theme {
+  @include companyTheme($CINCHY_PINK_COLOR, white, $CINCHY_PURPLE_COLOR);
+
+  &--Default {
+    @include companyTheme($DEFAULT, white, $CINCHY_PURPLE_COLOR);
+  }
+
+  &--Cinchy {
+    @include companyTheme($CINCHY_PINK_COLOR, white, $CINCHY_PURPLE_COLOR);
+  }
+
+  &--KPMG {
+    @include companyTheme($KPMG_COLOR, white, #E7015B);
+  }
+
+  &--PWC {
+    @include companyTheme($PWC_COLOR, white, #9cd580);
+  }
+}
+
+
+body {
+  background-color: #373544;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+}
+
+.charts-container {
+  .chart-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .chart-header-number {
+      background-color: #fff;
+      display: inline-block;
+      padding: 20px 25px;
+      border-radius: 10px;
+      font-size: 36px;
+      color: #666;
+      min-height: 30.7px;
+      text-align: center;
+      font-weight: 700;
+      font-family: Helvetica, serif;
+      @media screen and (max-width: 1040px) {
+        padding: 10px;
+        width: 30px;
+        min-height: 30.7px;
+        font-size: 24px;
+      }
+    }
+
+    .chart-header-text {
+      display: inline-block;
+      color: #fff;
+      padding: 7px;
+      font-size: 38px;
+      width: calc(100% - 94px);
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      font-family: Helvetica, serif;
+      @media screen and (max-width: 1040px) {
+        font-size: 24px;
+      }
+    }
+  }
+
+  .horizontal-half {
+    padding: 30px 10px 10px;
+    margin-top: 30px;
+    border: 1px solid #aaa;
+    border-top-right-radius: 60px;
+    position: relative;
+
+    mat-icon{
+      color: white;
+      cursor: pointer;
+    }
+
+    .reset-icons{
+      display: flex;
+      position: absolute;
+      right: 5%;
+      top: 2px;
+      color: white;
+      font-size: 12px;
+    }
+
+    .chart-label {
+      display: block;
+      position: absolute;
+      top: -15px;
+      left: -20px;
+      color: #fff;
+      padding: 5px 15px;
+      font-family: Roboto, "Helvetica Neue", sans-serif;
+      font-size: 18px;
+      border-radius: 5px;
+    }
+  }
+}
+
+@media screen and (max-width: 797px) {
+  .bar-chart-container {
+    .chart-header-text {
+      font-size: 14px;
+    }
+
+    .horizontal-half {
+      .chart-label {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .canvas-wrapper {
+    position: relative;
+    height: 300px;
+  }
+}
+
+.center-flex-row{
+  display: flex;
+  align-items: center;
+}
+
+.mr-10{
+  margin-right: 10px;
+}
+
+.selected-chart-option{
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  border-radius: 5px;
+  padding: 0 5px;
+  cursor: pointer;
+
+  mat-icon{
+    height: 16px;
+    width: 14px;
+    font-size: 16px;
+  }
+}
+
+.mr-20{
+  margin-right: 20px;
+}
+
+//Scroll bar stylesheet
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}

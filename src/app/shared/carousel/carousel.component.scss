@@ -1,0 +1,50 @@
+.carousel-wrapper {
+  overflow: hidden;
+}
+
+.carousel-inner {
+ // display: flex;
+  padding: 20px;
+}
+
+.dots-container {
+  text-align: center;
+}
+
+.btn-dot {
+  border: none;
+  background: #ebebeb;
+  border-radius: 50%;
+  width: 13px;
+  height: 13px;
+  margin: 0px 2px;
+  cursor: pointer;
+}
+
+.btn-dot.active {
+  background: #d1d1d1;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.side-btn {
+  position: absolute;
+  top: 42%;
+  border: none;
+  font-weight: bold;
+  height: 130px;
+  width: 18px;
+  background: #373544/*#d1d1d1*/;
+  color: white;
+  cursor: pointer;
+}
+
+.side-btn:hover {
+  background: #a6a6a6;
+}
+
+.side-btn:focus {
+  outline: none;
+}

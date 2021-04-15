@@ -1,0 +1,26 @@
+<div class="bar-chart-container charts-container">
+  <div class="full">
+    <div class="chart-header">
+      <div class="chart-header-number">{{data.headerCount}}</div>
+      <div class="chart-header-text">{{data.chartHeader}}</div>
+    </div>
+    <div class="horizontal-half">
+      <div>
+        <span class="chart-label" *ngIf="data.chartTitle">{{data.chartTitle}}</span>
+        <div class="reset-icons">
+          <div class="selected-chart-option" (click)="resetFilter()" *ngIf="clickedLabel">{{clickedLabel}}<mat-icon>clear icon</mat-icon></div>
+          <div *ngIf="chart.allowZoom" (click)="resetZoom()" title="Reset Zoom"><mat-icon>settings_backup_restore</mat-icon></div>
+        </div>
+      </div>
+      <div class="canvas-wrapper">
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [chartType]="barChartType"
+                [colors]="barChartColors">
+        </canvas>
+      </div>
+    </div>
+  </div>
+</div>

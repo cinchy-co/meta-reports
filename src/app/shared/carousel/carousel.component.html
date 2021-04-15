@@ -1,0 +1,19 @@
+<section class="carousel-wrapper">
+  <div class="carousel-inner" #carousel>
+    <div @item *ngFor="let item of items;let i = index" class="carousel-item">
+      <div @simpleFadeAnimation *ngIf="currentSlide === i">
+        <ng-container [ngTemplateOutlet]="item.tpl"></ng-container>
+      </div>
+    </div>
+  </div>
+</section>
+<div *ngIf="showControls" style="margin-top: 1em">
+  <div class="dots-container">
+    <ng-container *ngFor="let pageDot of pageDots; index as i;">
+      <button *ngIf="!pageDot.isActive" class="btn-dot btn active" (click)="pageChange(i)"></button>
+      <button *ngIf="pageDot.isActive" class="btn-dot btn" (click)="pageChange(i)"></button>
+    </ng-container>
+  </div>
+  <button class="side-btn" style="right: 15px;" (click)="next()">></button>
+  <button class="side-btn" style="left: 15px;" (click)="prev()"><</button>
+</div>
