@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "PwcDashboard": {
+    "MetaReports": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/PwcDashboard",
+            "outputPath": "dist/meta-reports",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -71,18 +71,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "PwcDashboard:build"
+            "browserTarget": "MetaReports:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "PwcDashboard:build:production"
+              "browserTarget": "MetaReports:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "PwcDashboard:build"
+            "browserTarget": "MetaReports:build"
           }
         },
         "test": {
@@ -124,16 +124,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "PwcDashboard:serve"
+            "devServerTarget": "MetaReports:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "PwcDashboard:serve:production"
+              "devServerTarget": "MetaReports:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "PwcDashboard"
+  "defaultProject": "MetaReports"
 }

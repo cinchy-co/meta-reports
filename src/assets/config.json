@@ -1,7 +1,7 @@
 {
-  "authority": "https://cinchy.net/cinchysso",
-  "cinchyRootUrl": "https://cinchy.net/Cinchy",
-  "clientId": "dynamic-charts-local",
-  "redirectUri": "https://localhost:4200/",
-  "version": "1.0.0"
+  "authority": "<cinchy-domain>/cinchysso",
+  "cinchyRootUrl": "<cinchy-domain>/Cinchy",
+  "clientId": "meta-reports",
+  "redirectUri": "<cinchy-domain>/dx/meta-reports",
+  "version": "2.1.0.711"
 }
