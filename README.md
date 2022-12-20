@@ -1,3 +1,6 @@
+# Support
+This project was created for Cinchy customers to use at their own risk. It is not actively being maintained nor is it supported by the Cinchy support team. 
+
 # Introduction 
 TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
 
