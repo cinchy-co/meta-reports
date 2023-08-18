@@ -3,7 +3,8 @@ import {CinchyService} from '@cinchy-co/angular-sdk';
 import {ChartDataService} from './services/chart-data.service';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {AppService} from './app.service';
-import {Observable} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
+import { NavigationStart, Router, RouterEvent } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,11 +15,28 @@ export class AppComponent implements OnInit {
   loggedIn: boolean;
   fullScreenHeight;
   loader$: Observable<boolean>;
+  private _routerEventSubscription: Subscription;
 
-  constructor(private cinchyService: CinchyService, private spinner: NgxSpinnerService,
-              private appService: AppService) {
+  constructor(
+              private router: Router,
+              private cinchyService: CinchyService, 
+              private spinner: NgxSpinnerService,
+              private appService: AppService
+              ) {
     this.loader$ = this.appService.getLoaderState();
-    this.setReportId();
+
+    this._routerEventSubscription = this.router.events.subscribe({
+      next: (event: RouterEvent) => {
+        // This is used if the incoming URL causes an immediate reload which would otherwise destroy the queryparams
+        if (event instanceof NavigationStart && !this.loggedIn) {
+          this.setReportId();
+        }
+      }
+    });
+  }
+
+  ngOnDestroy(): void {
+    this._routerEventSubscription.unsubscribe();
   }
 
   setReportId() {
