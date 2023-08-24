@@ -8,7 +8,7 @@ const cinchyConfig: CinchyConfig = {
   authority: 'https://cinchy.net/cinchysso',
   cinchyRootUrl: 'https://cinchy.net/Cinchy',
   clientId: 'dynamic-charts',
-  redirectUri: 'https://cinchy.net/dx/dynamic-charts'
+  redirectUri: 'https://dx.cinchy.net/dx/dynamic-charts'
 };
 
 // QA LOCAL
